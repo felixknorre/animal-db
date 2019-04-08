@@ -1,11 +1,11 @@
 
-public interface DBIF {
+public interface DBIF<T> {
 	
 	boolean isEmpty();
 	int size();
-	void appendLast(Igel a);
-	Igel removeLast();
-	Igel get(int a);
+	void appendLast(T t);
+	T removeLast();
+	T get(int a);
 	void swap(int a, int b);
 
 }

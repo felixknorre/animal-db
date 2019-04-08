@@ -1,8 +1,8 @@
 
 public abstract class Lebewesen {
-	
-	private static int maxId;
-	private int id;
+	//eigentlich private
+	public static int maxId;
+	public int id;
 	
 	public abstract int size();
 	public abstract int weight();

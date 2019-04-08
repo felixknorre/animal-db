@@ -1,33 +1,34 @@
-public class DBFeldFix extends DB {
+public class DBFeldFix<T> extends DB<T> {
 
-	private Igel[] db;
+	private T[] db;
 
 	public DBFeldFix(int s) {
-		db = new Igel[s];
+		db = (T[]) (new Object[s]);
 	}
-
-	public void appendLast(Igel a) {
+	
+	public void appendLast(T t) {
 		if (db.length > size) {
-			db[size++] = a;
+			db[size++] = t;
 		} else {
 			throw new IndexOutOfBoundsException();
 		}
 	}
+	
 
-	public Igel removeLast() {
-		Igel tmIgel = db[size() - 1];
+	public T removeLast() {
+		T tmItem = db[size() -1];
 		db[size() - 1] = null;
 		size--;
-		return tmIgel;
+		return tmItem;
 	}
 
-	public Igel get(int a) {
+	public T get(int a) {
 		return db[a];
 	}
 
 	public void swap(int a, int b) {
-		Igel tmpIgel = db[a];
+		T tmpItem = db[a];
 		db[a] = db[b];
-		db[b] = tmpIgel;
+		db[b] = tmpItem;
 	}
 }

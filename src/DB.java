@@ -1,5 +1,5 @@
 
-public abstract class DB implements DBIF{
+public abstract class DB<T> implements DBIF<T>{
 	
 	public int size;
 	
@@ -14,6 +14,4 @@ public abstract class DB implements DBIF{
 	public int size() {
 		return size;
 	}
-	
-
 }

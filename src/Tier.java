@@ -4,8 +4,11 @@ public class Tier extends Lebewesen {
 	private int weight;
 	
 	public Tier(int a, int b) {	
+		++maxId;
+		id = maxId;
 		size = a;
-		weight = b;	
+		weight = b;
+		
 	}
 	public int size() {
 		return size;
