@@ -3,7 +3,7 @@ public class DBFeldFix extends DB {
 	private Igel[] db;
 
 	public DBFeldFix(int s) {
-		db = new Igel[s];
+		db = new Igel[s + 1];
 	}
 
 	public void appendLast(Igel a) {
