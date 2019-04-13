@@ -11,7 +11,7 @@ class Task3 {
 		Igel igel;
 		int pos = 1;
 		int expactedMaxId = 0;
-		DB<Igel> db = new DBFeldFix<Igel>(dbsize);
+		DB db = new DBFeldFix(dbsize);
 		
 		while(pos < dbsize) {
 			size = ThreadLocalRandom.current().nextInt(10,45);
