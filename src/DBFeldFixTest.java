@@ -1,11 +1,13 @@
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class DBFeldFixTest {
 	//task 3 to 6
 	//task3
 	@Test
+	@DisplayName("Testing append method...")
 	void appendLastTest() {
 		DB db = new DBFeldFix(10);
 		Igel i1 = new Igel(2,3);
@@ -23,6 +25,7 @@ class DBFeldFixTest {
 
 	}
 	@Test 
+	@DisplayName("Testing if maxId counts right..")
 	void maxIdtest() {
 		//test the maxId
 		Igel j = new Igel(2,3);
@@ -31,6 +34,7 @@ class DBFeldFixTest {
 		assertEquals(5, k.getMaxId(), "k.maxid nicht 2");
 	}
 	@Test 
+	@DisplayName("Testing the size of the DB..")
 	void sizetest() {
 		DB db = new DBFeldFix(10);
 		Igel i1 = new Igel(2,3);
@@ -47,6 +51,7 @@ class DBFeldFixTest {
 	
 	//task 4
 	@Test
+	@DisplayName("Testing remove method..")
 	void removeLastTest() {
 		//removes in the right order
 		DB db = new DBFeldFix(10);
@@ -63,6 +68,7 @@ class DBFeldFixTest {
 		assertEquals(i1, db.removeLast(), "does not remove the last");
 	}
 	@Test
+	@DisplayName("Testing if the size incease..")
 	void increasesize() {
 		DB db = new DBFeldFix(10);
 		Igel i1 = new Igel(2,3);
