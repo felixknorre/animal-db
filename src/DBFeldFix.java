@@ -1,34 +1,44 @@
+
 public class DBFeldFix<T> extends DB<T> {
-
+	
 	private T[] db;
-
-	public DBFeldFix(int s) {
-		db = (T[]) (new Object[s]);
+	
+	public DBFeldFix(T[] i) {
+		db = i;
+		this.size = 0;
 	}
 	
-	public void appendLast(T t) {
-		if (db.length > size) {
-			db[size++] = t;
-		} else {
-			throw new IndexOutOfBoundsException();
+	public void appendLast(T i) {
+		try {
+			db[size++] = i;
+		} catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println("Fehler: Kann nicht eingefüght werden!" + e.getMessage());
 		}
+		
 	}
-	
-
 	public T removeLast() {
-		T tmItem = db[size() -1];
-		db[size() - 1] = null;
-		size--;
-		return tmItem;
+		try {
+			T tmT = db[--size];
+			return tmT;
+		} catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println("Fehler: Kann nicht entfernt werden" + e.getMessage());
+		}
+		return null;
+	}
+	public T get(int i) {
+		return db[i - 1];
+	}
+	public void swap(int x, int y) {
+		T tmT = this.db[x - 1];
+		this.db[x - 1] = this.db[y - 1];
+		this.db[y - 1] = tmT;
+	}
+	public String toString() {
+		String out = "";
+		for(int i = 0; i < this.size(); i++) {
+			out += i + ": " + db[i] + "\n";
+		}
+		return out;
 	}
 
-	public T get(int a) {
-		return db[a];
-	}
-
-	public void swap(int a, int b) {
-		T tmpItem = db[a];
-		db[a] = db[b];
-		db[b] = tmpItem;
-	}
 }

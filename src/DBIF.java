@@ -1,11 +1,9 @@
-
 public interface DBIF<T> {
 	
-	boolean isEmpty();
-	int size();
-	void appendLast(T t);
-	T removeLast();
-	T get(int a);
-	void swap(int a, int b);
-
+	public boolean isEmpty();
+	public int size();
+	public void appendLast(T i);
+	public T removeLast();
+	public T get(int i);
+	public void swap(int x, int y);
 }
