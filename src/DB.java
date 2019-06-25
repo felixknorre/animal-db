@@ -1,19 +1,12 @@
+public abstract class DB<T> implements DBIF<T>{
 
-public abstract class DB implements DBIF{
-	
-	public int size;
+	int size;
 	
 	public boolean isEmpty() {
-		if (size() == 0) {
-			return true;
-		}
-		else {
-			return false;
-		}
+		return size == 0?true:false; //size==0 
 	}
 	public int size() {
-		return size;
+		return this.size;
 	}
 	
-
 }

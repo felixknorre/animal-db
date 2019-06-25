@@ -1,33 +1,44 @@
-public class DBFeldFix extends DB {
 
-	private Igel[] db;
-
-	public DBFeldFix(int s) {
-		db = new Igel[s];
+public class DBFeldFix<T> extends DB<T> {
+	
+	private T[] db;
+	
+	public DBFeldFix(T[] i) {
+		db = i;
+		this.size = 0;
 	}
-
-	public void appendLast(Igel a) {
-		if (db.length > size) {
-			db[size++] = a;
-		} else {
-			throw new IndexOutOfBoundsException();
+	
+	public void appendLast(T i) {
+		try {
+			db[size++] = i;
+		} catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println("Fehler: Kann nicht eingefüght werden!" + e.getMessage());
 		}
+		
+	}
+	public T removeLast() {
+		try {
+			T tmT = db[--size];
+			return tmT;
+		} catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println("Fehler: Kann nicht entfernt werden" + e.getMessage());
+		}
+		return null;
+	}
+	public T get(int i) {
+		return db[i - 1];
+	}
+	public void swap(int x, int y) {
+		T tmT = this.db[x - 1];
+		this.db[x - 1] = this.db[y - 1];
+		this.db[y - 1] = tmT;
+	}
+	public String toString() {
+		String out = "";
+		for(int i = 0; i < this.size(); i++) {
+			out += i + ": " + db[i] + "\n";
+		}
+		return out;
 	}
 
-	public Igel removeLast() {
-		Igel tmIgel = db[size() - 1];
-		db[size() - 1] = null;
-		size--;
-		return tmIgel;
-	}
-
-	public Igel get(int a) {
-		return db[a];
-	}
-
-	public void swap(int a, int b) {
-		Igel tmpIgel = db[a];
-		db[a] = db[b];
-		db[b] = tmpIgel;
-	}
 }

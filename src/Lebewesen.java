@@ -1,11 +1,19 @@
-
 public abstract class Lebewesen {
-	
 	private static int maxId;
 	private int id;
 	
-	public abstract int size();
-	public abstract int weight();
+	public Lebewesen() {
+		maxId++;
+		this.id = maxId;
+	}
 	
-
+	abstract int size();
+	abstract int weight();
+	
+	public int getid() {
+		return this.id;
+	}
+	public int getMaxId() {
+		return this.maxId;
+	}
 }
