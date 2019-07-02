@@ -18,5 +18,17 @@ class TierTest {
 			//System.out.println(i3.toString() + "\n" + t1.toString()  + "\n" + t2.toString());
 			
 		}
+		
+		@Test
+		void compareToTest() {
+			Igel i1 = new Igel(1,2);
+			Igel i2 = new Igel(3,4);
+			assertEquals(-1, i1.compareTo(i2), "method should return the animal with the bigger size");
+		}
+		@Test
+		void equalsTest() {
+			Igel i1 = new Igel(1,2);
+			assertEquals(0, i1.equals(i1));
+		}
 
 }

@@ -1,3 +1,5 @@
+import java.util.Comparator;
+
 public abstract class DB<T> implements DBIF<T>{
 
 	int size;
@@ -8,5 +10,6 @@ public abstract class DB<T> implements DBIF<T>{
 	public int size() {
 		return this.size;
 	}
+	abstract void sort(Comparator<?> comp);
 	
 }
