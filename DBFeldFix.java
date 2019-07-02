@@ -1,3 +1,4 @@
+import java.util.Comparator;
 import java.util.Iterator;
 
 public class DBFeldFix<T> extends DB<T> {
@@ -126,4 +127,10 @@ public class DBFeldFix<T> extends DB<T> {
 		}
 		return out;
 	}
+	@Override
+	void sort(Comparator<?> comp) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
