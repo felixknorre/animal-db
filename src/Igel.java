@@ -1,4 +1,3 @@
-
 public class Igel extends Tier {
 
 	public Igel(int s, int w) {

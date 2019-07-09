@@ -1,5 +1,7 @@
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.Iterator;
+
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -142,5 +144,48 @@ class DBFeldFixTest {
 		Amsel a4 = (Amsel)dbTier.get(4); // you have to cast hier
 		Tier t1 = dbTier.get(1);
 		Tier t2 = dbTier.get(4);	
+	}
+	
+	@Test
+	void IteratorTest() {
+		Igel[] igelFeld = new Igel[10];
+		DBFeldFix<Igel> Data = new DBFeldFix<>(igelFeld);
+		Igel i1 = new Igel(2,3);
+		Igel i2 = new Igel(21,7);
+		Igel i3 = new Igel(8,23);
+		Igel i4 = new Igel(50,30);
+		
+		Data.appendLast(i1);
+		Data.appendLast(i2);
+		Data.appendLast(i3);
+		Data.appendLast(i4);
+		
+		Iterator<Igel> it = Data.iterator();
+		
+		while(it.hasNext()) {
+			System.out.println(it.next());
+		}
+		System.out.println("\n");
+		
+		Iterator<Igel> it2 = Data.iterator(1);
+		
+		while(it2.hasNext()) {
+			System.out.println(it2.next());
+		}
+		System.out.println("\n");
+		
+		Iterator<Igel> it3 = Data.iterator(0,2);
+		
+		while(it3.hasNext()) {
+			System.out.println(it3.next());
+		}
+		System.out.println("\n");
+		
+		Iterator<Igel> it4 = Data.iterator(4,0);
+		
+		while(it4.hasNext()) {
+			System.out.println(it4.next());
+		}
+		System.out.println("\n");
 	}
 }
