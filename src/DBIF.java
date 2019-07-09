@@ -1,4 +1,4 @@
-public interface DBIF<T> {
+public interface DBIF<T> extends Iterable<T>{
 	
 	public boolean isEmpty();
 	public int size();
