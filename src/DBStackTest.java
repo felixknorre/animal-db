@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 class DBStackTest {
 	
 	DBStack<Igel> dbs;
+	DBIF<Igel> dbi;
 	Igel i1;
 	Igel i2;
 	Igel i3;
@@ -14,6 +15,7 @@ class DBStackTest {
 	@BeforeEach
 	void init() {
 		dbs = new DBStack<>();
+		dbi = new DBStack<>();
 		i1 = new Igel(1,2);
 		i2 = new Igel(3,4);
 		i3 = new Igel(5,6);
@@ -84,8 +86,15 @@ class DBStackTest {
 		dbs.swap(1,2);
 		assertEquals(i2, dbs.get(1));
 		assertEquals(i1, dbs.get(2));
-		
-		
+	}
+	@Test
+	@DisplayName("DBStack vs DBIF")
+	void StackIfTest() {
+		dbs.add(i1);
+		dbs.appendLast(i2);
+		//it makes no sense to extends stack, because you have two arrays/stacks, but it is so in the task
+		dbi.appendLast(i1);
+		//if it is declared as DBIF you can only use the DBStack methods and use only one stack
 	}
 
 }
