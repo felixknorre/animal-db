@@ -9,4 +9,4 @@ little database project for the course Programming 2 at H-BRS
 - use Iterator & ForEach-loop
 - implement Comparable<T> & Comparator<T> for a collection
 - implement a sort & min method for a collection
-  
+- implememt a dynamic array list
